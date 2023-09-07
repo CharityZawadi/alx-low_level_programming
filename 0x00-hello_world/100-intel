@@ -9,8 +9,19 @@ fi
 # Extract the base name of the C file (without the extension)
 BASENAME=$(basename -s .c "$CFILE")
 
+# Create a sample C code that includes a main function printing a string
+cat <<EOF > "${BASENAME}.c"
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Programming is like building a multilingual puzzle\\n");
+    return (0);
+}
+EOF
+
 # Generate the assembly code using GCC with Intel syntax
-gcc -S -masm=intel "$CFILE" -o "${BASENAME}.s"
+gcc -S -masm=intel "${BASENAME}.c" -o "${BASENAME}.s"
 
 # Check if the compilation was successful
 if [ $? -eq 0 ]; then
@@ -18,4 +29,7 @@ if [ $? -eq 0 ]; then
 else
     echo "Compilation failed. Please check your C code."
 fi
+
+# Remove the temporary C file
+rm "${BASENAME}.c"
 
