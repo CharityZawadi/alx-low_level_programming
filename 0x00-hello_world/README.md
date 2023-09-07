@@ -1,0 +1,1 @@
+Each task focuses on a specific aspect of C programming, including preprocessing, compiling, using standard library functions, and more. These tasks serve as exercises to improve C programming skills.
