@@ -1,56 +1,43 @@
-#include "main.h"
 #include <stdio.h>
 
 /**
- * print_large_number - Print a large number as a string
- * @n: The number to print
- */
-void print_large_number(char *n)
-{
-int i;
-
-for (i = 0; n[i]; i++)
-_putchar(n[i]);
-}
-
-/**
- * main - Entry point
- *
- * Return: Always 0
+ * main - This finds and prints the first 98 Fibonacci numbers,
+ * starting with 1 and 2
+ * followed by a new line
+ * Return: ALways 0 (Success)
  */
 int main(void)
 {
-int i;
-char a[100] = "1";
-char b[100] = "2";
-char next[100];
+	unsigned long int i, j, k, j1, j2, k1, k2;
 
-print_large_number(a);
-_putchar(',');
-_putchar(' ');
+	j = 1;
+	k = 2;
 
-for (i = 2; i < 98; i++)
-{
-sprintf(next, "%s", b);
-add_strings(next, a);
+	printf("%lu", j);
 
-if (i != 97)
-{
-print_large_number(next);
-_putchar(',');
-_putchar(' ');
+	for (i = 1; i < 91; i++)
+	{
+		printf(", %lu", k);
+		k = k + j;
+		j = k - j;
+	}
+
+	j1 = j / 1000000000;
+	j2 = j % 1000000000;
+	k1 = k / 1000000000;
+	k2 = k % 1000000000;
+
+	for (i = 92; i < 99; ++i)
+	{
+		printf(", %lu", k1 + (k2 / 1000000000));
+		printf("%lu", k2 % 1000000000);
+		k1 = k1 + j1;
+		j1 = k1 - j1;
+		k2 = k2 + j2;
+		j2 = k2 - j2;
+	}
+
+	printf("\n");
+
+	return (0);
 }
-else
-{
-print_large_number(next);
-}
-
-sprintf(a, "%s", b);
-sprintf(b, "%s", next);
-}
-
-_putchar('\n');
-
-return (0);
-}
-
