@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * main - Entry point of the program
+ * main - Entry point
  *
- * Description: This program demonstrates how to print 98 by manipulating
- *              the integer array a and pointer p.
+ * Description: Prints the value 98 to the standard output using a pointer.
+ *              The variable 'a' is not directly used for this purpose.
  *
  * Return: Always 0 (Success)
  */
@@ -25,7 +25,7 @@ p = &n;
 * - only one statement
 * - you are not allowed to code anything else than this line of code
 */
-*(p + 5) = 98;
+p[5] = 98;
 /* ...so that this prints 98\n */
 printf("a[2] = %d\n", a[2]);
 return (0);
