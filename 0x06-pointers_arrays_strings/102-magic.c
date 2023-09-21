@@ -12,7 +12,6 @@ p = &n;
 * Add one line of code here to make the program
 * print "a[2] = 98\n" without modifying p or using a.
 */
-;
 
 *(p + 5) = 98;
 
