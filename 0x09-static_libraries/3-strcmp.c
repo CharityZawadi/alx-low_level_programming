@@ -1,4 +1,4 @@
-#include "main"
+
 /**
  * _strcmp - Compares two strings
  * @s1: The first string to be compared

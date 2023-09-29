@@ -1,4 +1,4 @@
-#include "main"
+
 /**
  * _abs - Computes the absolute value of an integer
  * @n: The integer to compute the absolute value of

@@ -1,4 +1,4 @@
-#include "main"
+
 /**
  * _strstr - Locates a substring
  * @haystack: The main string

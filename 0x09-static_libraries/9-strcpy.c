@@ -1,4 +1,4 @@
-#include "main"
+
 /**
  * _strcpy - Copies the string pointed to by src to the buffer pointed to by dest
  * @dest: The buffer storing the copied string
