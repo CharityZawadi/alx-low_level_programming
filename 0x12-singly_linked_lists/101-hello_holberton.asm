@@ -1,19 +1,18 @@
 section .data
-hello db "Hello, Holberton",0
+hello db "Hello, Holberton",10
 
 section .text
 global main
 
 main:
 ; Write the string to stdout (file descriptor 1)
-mov rax, 1           ; syscall number for sys_write
-mov rdi, 1           ; file descriptor 1 (stdout)
-mov rsi, hello       ; pointer to the string
-mov rdx, 16          ; length of the string
-syscall
+mov eax, 4           ; syscall number for sys_write
+mov ebx, 1           ; file descriptor 1 (stdout)
+mov ecx, hello       ; pointer to the string
+mov edx, 17          ; length of the string, including the newline
+int 0x80             ; interrupt to invoke syscall
 
 ; Exit the program
-mov rax, 60          ; syscall number for sys_exit
-xor rdi, rdi         ; status = 0
-syscall
-
+mov eax, 1           ; syscall number for sys_exit
+xor ebx, ebx         ; status = 0
+int 0x80             ; interrupt to invoke syscall
