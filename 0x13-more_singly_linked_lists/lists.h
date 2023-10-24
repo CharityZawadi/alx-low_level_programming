@@ -34,6 +34,7 @@ listint_t *reverse_listint(listint_t **head);
 int check_cycle(listint_t *list);
 listint_t *find_listint_loop(listint_t *head);
 size_t print_listint_safe(const listint_t *head);
+void free_listint_safe(listint_t **h);
 
 #endif /* LISTS_H */
 
