@@ -11,8 +11,8 @@
  * @filename_to: Pointer to the destination filename
  * Return: 0 on success, 1 on failure
  */
-int check_arguments(int ac,
-char **av, char **filename_from, char **filename_to)
+int check_arguments(int ac, char **av,
+char **filename_from, char **filename_to)
 {
 if (ac != 3)
 {
@@ -26,20 +26,16 @@ return (0);
 }
 
 /**
- * main - Copy the content of a file to another file.
- * @ac: Argument count
- * @av: Argument vector
+ * copy_file - Copy the content of a file to another file.
+ * @filename_from: Source filename
+ * @filename_to: Destination filename
  * Return: 0 on success, 97-100 on failure
  */
-int main(int ac, char **av)
+int copy_file(char *filename_from, char *filename_to)
 {
 int fd_from, fd_to;
-char *filename_from, *filename_to;
 char buffer[1024];
 ssize_t bytes_read, bytes_written;
-
-if (check_arguments(ac, av, &filename_from, &filename_to) != 0)
-return (97);
 
 fd_from = open(filename_from, O_RDONLY);
 if (fd_from == -1)
@@ -67,8 +63,28 @@ close(fd_to);
 return (99);
 }
 }
+
 close(fd_from);
 close(fd_to);
+return (0);
+}
+
+/**
+ * main - Main function
+ * @ac: Argument count
+ * @av: Argument vector
+ * Return: 0 on success, 97-100 on failure
+ */
+int main(int ac, char **av)
+{
+char *filename_from, *filename_to;
+
+if (check_arguments(ac, av, &filename_from, &filename_to) != 0)
+return (97);
+
+if (copy_file(filename_from, filename_to) != 0)
+return (98);
+
 return (0);
 }
 
