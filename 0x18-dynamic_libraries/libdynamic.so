@@ -1,0 +1,76 @@
+#include "main.h"
+
+// _putchar
+int _putchar(char c) {
+    return write(1, &c, 1);
+}
+
+// _islower
+int _islower(int c) {
+    return (c >= 'a' && c <= 'z');
+}
+
+// _isalpha
+int _isalpha(int c) {
+    return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
+// _abs
+int _abs(int n) {
+    return (n < 0) ? -n : n;
+}
+
+// _isupper
+int _isupper(int c) {
+    return (c >= 'A' && c <= 'Z');
+}
+
+// _isdigit
+int _isdigit(int c) {
+    return (c >= '0' && c <= '9');
+}
+
+// _strlen
+int _strlen(char *s) {
+    int len = 0;
+    while (*s) {
+        len++;
+        s++;
+    }
+    return len;
+}
+
+// _puts
+void _puts(char *s) {
+    while (*s) {
+        _putchar(*s);
+        s++;
+    }
+    _putchar('\n');
+}
+
+// _strcpy
+char *_strcpy(char *dest, char *src) {
+    char *ptr = dest;
+    while ((*dest++ = *src++))
+        ;
+    return ptr;
+}
+
+// _atoi
+int _atoi(char *s) {
+    int result = 0;
+    int sign = 1;
+
+    if (*s == '-') {
+        sign = -1;
+        s++;
+    }
+
+    while (*s >= '0' && *s <= '9') {
+        result = result * 10 + (*s - '0');
+        s++;
+    }
+
+    return sign * result;
+}
